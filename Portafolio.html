@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Ciriaco | Full Stack Engineer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void-black: #0A0A0A;
+            --cyber-ink: #151515;
+            --neon-teal: #00FFD1;
+            --hologram-purple: #7D5FFF;
+            --error-pink: #FF467E;
+            --text-primary: #F0F0F0;
+            --text-muted: #6A6A6A;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--void-black);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(15,15,15,0.98) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,255,209,0.1);
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--neon-teal) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-teal), var(--hologram-purple));
+            transition: width 0.4s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+        }
+
+        .cyber-glow-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--neon-teal), var(--hologram-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 280px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-teal);
+            box-shadow: 0 0 40px rgba(0,255,209,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .profile-img:hover {
+            transform: rotate(3deg) scale(1.05);
+            box-shadow: 0 0 60px rgba(0,255,209,0.2);
+        }
+
+        .cyber-card {
+            background: var(--cyber-ink);
+            border: 1px solid rgba(0,255,209,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-teal);
+            box-shadow: 0 10px 30px rgba(0,255,209,0.05);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--neon-teal), var(--hologram-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-neon {
+            background: transparent;
+            border: 2px solid var(--neon-teal);
+            color: var(--neon-teal);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            background: rgba(0,255,209,0.05);
+            box-shadow: 0 0 20px rgba(0,255,209,0.1);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--neon-teal), var(--hologram-purple));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--neon-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-teal);
+        }
+
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+
+        .progress {
+            background: rgba(0,255,209,0.1);
+            height: 4px;
+        }
+
+        .progress-bar {
+            background: var(--neon-teal);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span style="background: linear-gradient(45deg, var(--neon-teal), var(--hologram-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">C4RLOS_DEV</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">HABILIDADES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">ESTUDIOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">CERTIFICACIONES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">CONTACTO</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container text-center">
+            <img src="img.jpeg" alt="Carlos Ciriaco" class="profile-img mb-4" data-aos="fade-up">
+            <h1 class="cyber-glow-title mb-3" data-aos="fade-up" data-aos-delay="200">CARLOS DC</h1>
+            <p class="lead mb-4 text-muted" data-aos="fade-up" data-aos-delay="400">
+                Desarrollador Full Stack & IoT
+            </p>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <a href="https://github.com/C4rlosDcJ" class="btn btn-neon mx-2">
+                    <i class="fab fa-github me-1"></i>GitHub
+                </a>
+                <a href="#contact" class="btn btn-neon mx-2">
+                    <i class="fas fa-envelope me-1"></i>Contacto
+                </a>
+            </div>
+            <div class="mt-4" data-aos="fade-up" data-aos-delay="800">
+                <a href="CV-Carlos Daniel Ciriaco Juan.pdf" download class="btn btn-neon">
+                    <i class="fas fa-download me-2"></i>Descargar CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="cyber-glow-title text-center mb-5" data-aos="fade-up">STACK TECNOLÓGICO</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cyber-card">
+                        <i class="fab fa-laravel skill-icon"></i>
+                        <h4>Laravel Architect</h4>
+                        <p class="text-muted">UI Modernas, APIs RESTful, seguridad JWT, arquitectura limpia</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cyber-card">
+                        <i class="fab fa-react skill-icon"></i>
+                        <h4>React / React Native</h4>
+                        <p class="text-muted">UI modernas, animaciones, consumo de APIs</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cyber-card">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <h4>Cloud & DevOps</h4>
+                        <p class="text-muted">AWS, Linux, Git, CI/CD</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="cyber-card">
+                        <i class="fab fa-python skill-icon"></i>
+                        <h4>Python & Flask</h4>
+                        <p class="text-muted">APIs, automatización e integración IoT</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="cyber-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4>MySQL / MongoDB</h4>
+                        <p class="text-muted">Modelado relacional y optimización</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educación Section -->
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="cyber-glow-title text-center mb-5" data-aos="fade-up">FORMACIÓN ACADÉMICA</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <h4>T.S.U en Desarrollo de Software Multiplataforma</h4>
+                    <p class="text-muted">Universidad Tecnologica del Valle de Toluca</p>
+                    <p class="text-muted">Desarrollador de software</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                    <h4>Tecnico en Informatica | Titulado</h4>
+                    <p class="text-muted">CBT N.3 Otzolotepec (2019-2022)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-5">
+        <div class="container">
+            <h2 class="cyber-glow-title text-center mb-5" data-aos="fade-up">CERTIFICACIONES</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cyber-card">
+                        <i class="fas fa-certificate skill-icon"></i>
+                        <h4>Alura Latam</h4>
+                        <p class="text-muted">Validación oficial de Alura Latam</p>
+                        <a href="https://app.aluracursos.com/user/carlosdaniel30490444/fullCertificate/b964ba83d68845b8a1d0bdef970fd9f9" class="btn btn-neon btn-sm mt-2">Ver credencial</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cyber-card">
+                        <i class="fas fa-certificate skill-icon"></i>
+                        <h4>React & SpringBoot</h4>
+                        <p class="text-muted">Certificación oficial de Udemy</p>
+                        <a href="https://www.udemy.com/certificate/UC-5248120e-a2f3-4f13-8545-bee746ed667f/" class="btn btn-neon btn-sm mt-2">Ver credencial</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cyber-card">
+                        <i class="fas fa-certificate skill-icon"></i>
+                        <h4>CCNAv7: Switching,
+                            Routing and Wireless Essentials</h4>
+                        <p class="text-muted">Certificación oficial de Cisco Network Academy</p>
+                        <!-- <a href="#" class="btn btn-neon btn-sm mt-2">Ver credencial</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container text-center">
+            <div class="cyber-card py-5" data-aos="zoom-in">
+                <h2 class="cyber-glow-title mb-4">¡Hablemos!</h2>
+                <p class="mb-4 text-muted">Disponible para nuevos proyectos y colaboraciones <br> carlosdaniel30490444@gmail.com</p>
+                <a href="mailto:carlosdaniel30490444@gmail.com" class="btn btn-neon">
+                    <i class="fas fa-envelope me-1"></i>Contactar por email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out-quad'
+        });
+    </script>
+</body>
+</html>
