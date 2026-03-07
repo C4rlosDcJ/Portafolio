@@ -1,0 +1,110 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    align-items: start;
+}
+
+.profileCol {}
+
+.profileText {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 0.97rem;
+    margin-bottom: 1.25rem;
+}
+
+.profileText strong {
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+.contactList {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contactIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-light);
+    flex-shrink: 0;
+    font-size: 0.95rem;
+}
+
+.contactLink {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.contactLink:hover {
+    color: var(--accent-light);
+}
+
+.contactLabel {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Stats */
+.statsCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.statCard {
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.statValue {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statsCol {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .statsCol {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,83 @@
+.section {
+    background: var(--surface);
+}
+
+.timeline {
+    position: relative;
+    margin-top: 3rem;
+    padding-left: 2.5rem;
+}
+
+.line {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            var(--accent) 0%,
+            var(--cyan) 70%,
+            transparent 100%);
+    border-radius: 2px;
+}
+
+.item {
+    position: relative;
+    margin-bottom: 1.75rem;
+}
+
+.dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 1.5rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--surface-1);
+    border: 2px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    box-shadow: 0 0 14px rgba(6, 182, 212, 0.25);
+    z-index: 1;
+}
+
+.card {
+    padding: 1.75rem;
+}
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.degree {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.institution {
+    font-size: 0.9rem;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.period {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.desc {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}

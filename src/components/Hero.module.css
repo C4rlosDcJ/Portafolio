@@ -1,0 +1,258 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--surface);
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.orb1 {
+    position: absolute;
+    top: -200px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.orb2 {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+/* ---- PHOTO ---- */
+.photoWrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ringOuter {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent), var(--cyan), var(--accent));
+    padding: 3px;
+    animation: spin 8s linear infinite;
+    box-shadow: 0 0 60px rgba(59, 130, 246, 0.25);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ringInner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--surface-2);
+    padding: 6px;
+    animation: spin 8s linear infinite reverse;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.statusBadge {
+    position: absolute;
+    bottom: 10px;
+    right: -10px;
+    background: rgba(10, 22, 40, 0.95);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 99px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    backdrop-filter: blur(10px);
+}
+
+.statusDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(0.85);
+    }
+}
+
+/* ---- TEXT ---- */
+.text {
+    flex: 1;
+    min-width: 0;
+}
+
+.greeting {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.name {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.roleWrap {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1.15rem;
+}
+
+.rolePrefix {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.roleText {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+.bio {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.socials {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.socialLink {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.07);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    color: var(--text-muted);
+    transition: all 0.25s;
+}
+
+.socialLink:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--accent);
+    color: var(--accent-light);
+    transform: translateY(-3px);
+}
+
+/* ---- SCROLL INDICATOR ---- */
+.scrollIndicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-subtle);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.scrollIndicator:hover {
+    color: var(--accent-light);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+        gap: 2.5rem;
+    }
+
+    .ringOuter {
+        width: 200px;
+        height: 200px;
+    }
+
+    .bio {
+        margin: 0 auto 2rem;
+    }
+
+    .actions,
+    .socials {
+        justify-content: center;
+    }
+}

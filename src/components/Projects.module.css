@@ -1,0 +1,174 @@
+.projectsSection {
+    background: var(--surface);
+}
+
+.filters {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.filterBtn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 99px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.12);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filterBtn:hover {
+    color: var(--accent-light);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.filterActive {
+    background: rgba(59, 130, 246, 0.12) !important;
+    color: var(--accent-light) !important;
+    border-color: var(--accent) !important;
+}
+
+.filterAI {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.filterAI.filterActive {
+    background: rgba(245, 158, 11, 0.12) !important;
+    color: var(--gold-light) !important;
+    border-color: var(--gold) !important;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Card */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: default;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 20px 60px var(--card-glow, rgba(59, 130, 246, 0.15));
+}
+
+.cardHeader {
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.aiTag {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.65rem !important;
+}
+
+.cardDots {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.cardDots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-hover);
+}
+
+.cardDots span:first-child {
+    background: rgba(239, 68, 68, 0.5);
+}
+
+.cardDots span:nth-child(2) {
+    background: rgba(245, 158, 11, 0.5);
+}
+
+.cardDots span:last-child {
+    background: rgba(16, 185, 129, 0.5);
+}
+
+.catTag {
+    font-size: 0.67rem !important;
+}
+
+.cardBody {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cardTitle {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.cardSubtitle {
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
+.cardDesc {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0.5rem 0;
+    flex: 1;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.cardActions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.cardActions .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 960px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
